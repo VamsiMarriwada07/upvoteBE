@@ -58,7 +58,7 @@ app.post('/retrieve',async(req,res)=>{
             req.body.name
         ]
         db.query(sql,[value],(err,data)=>{
-        if(err) return res.json({Error:"emo ra babu"});
+        if(err) return res.json({Error:{err}});
         if(data.length>0){
             var sol = JSON.stringify(data)
             return res.json(sol)
