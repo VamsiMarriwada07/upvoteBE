@@ -16,7 +16,7 @@ app.use(express.json());
 app.use(cors());
 
 app.use(cors({
-  origin: '*',
+  origin: 'https://upvotingsystem.netlify.app/',
   methods: ['GET', 'POST', 'OPTIONS'],
   allowedHeaders: ['Content-Type'],
 credentials:true
