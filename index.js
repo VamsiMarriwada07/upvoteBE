@@ -14,9 +14,10 @@ const urlDB = `mysql://${process.env.MYSQLUSER}:${process.env.MYSQLPASSWORD}@${p
 const app =  express();
 app.use(express.json());
 app.use(cors({
-    origin:['https://main--upvoting-system.netlify.app'],
-    methods:["POST","GET"],
-    credentials:true
+  origin: 'https://main--upvoting-system.netlify.app',
+  methods: ['GET', 'POST', 'OPTIONS'],
+  allowedHeaders: ['Content-Type']
+credentials:true
 }));
 
 app.use(cookieParser());
