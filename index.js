@@ -9,7 +9,7 @@ dotenv.config()
 
 const salt = 10; 
 
-const urlDB = `mysql://${process.env.MYSQLUSER}:${process.env.MYSQLPASSWORD}@${process.env.MYSQLHOST}:${process.env.MYSQLPORT}/${process.env.MYSQLDATABASE}`
+const urlDB = `mysql://root:swZsxDJFvFerttFxiUASiLLhUxFtDpdm@viaduct.proxy.rlwy.net:25794/railway`
 
 const app =  express();
 app.use(express.json());
