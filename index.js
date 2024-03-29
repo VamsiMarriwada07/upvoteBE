@@ -4,7 +4,12 @@ import mysql from 'mysql';
 import jwt, { decode} from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
 import cookieParser from 'cookie-parser';
-const salt = 10;
+import dotenv from "dotenv"
+dotenv.config()
+
+const salt = 10; 
+
+const urlDB = `mysql://${process.env.MYSQLUSER}:${process.env.MYSQLPASSWORD}@${process.env.MYSQLHOST}:${process.env.MYSQLPORT}/${process.env.MYSQLDATABASE}`
 
 const app =  express();
 app.use(express.json());
@@ -16,12 +21,7 @@ app.use(cors({
 
 app.use(cookieParser());
  
-const db = mysql.createConnection({
-    host:'localhost', 
-    user:'root',
-    password:'',
-    database:'devcraft'
-})
+const db = mysql.createConnection({urlDB});
 
 
 const verifyUser = (req,res,next)=>{
