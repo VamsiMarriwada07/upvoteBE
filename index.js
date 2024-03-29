@@ -13,10 +13,14 @@ const urlDB = `mysql://${process.env.MYSQLUSER}:${process.env.MYSQLPASSWORD}@${p
 
 const app =  express();
 app.use(express.json());
+app.use(cors());
+
+app.use(cors({ origin: 'https://main--upvoting-system.netlify.app' }));
+
 app.use(cors({
   origin: 'https://main--upvoting-system.netlify.app',
   methods: ['GET', 'POST', 'OPTIONS'],
-  allowedHeaders: ['Content-Type']
+  allowedHeaders: ['Content-Type'],
 credentials:true
 }));
 
