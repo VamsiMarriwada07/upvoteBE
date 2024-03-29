@@ -15,8 +15,6 @@ const app =  express();
 app.use(express.json());
 app.use(cors());
 
-app.use(cors({ origin: 'https://upvoting-system.netlify.app' }));
-
 app.use(cors({
   origin: 'https://upvoting-system.netlify.app',
   methods: ['GET', 'POST', 'OPTIONS'],
@@ -26,7 +24,7 @@ credentials:true
 
 app.use(cookieParser());
  
-const db = mysql.createConnection({urlDB});
+const db = mysql.createConnection(urlDB);
 
 
 const verifyUser = (req,res,next)=>{
