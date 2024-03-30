@@ -32,6 +32,13 @@ const db = mysql.createConnection({
     database: process.env.DB_DBNAME,
 })
 
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "https://upvotingsystem.netlify.app");
+  res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE");
+  res.header("Access-Control-Allow-Headers", "Content-Type");
+  res.header("Access-Control-Allow-Credentials", "true"); // Allow credentials
+  next();
+});
 
 const verifyUser = (req,res,next)=>{
     const token = req.cookies.token;
