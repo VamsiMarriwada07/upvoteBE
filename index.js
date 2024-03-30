@@ -151,7 +151,7 @@ app.post("/login",(req,res)=>{
                     const email = data[0].email;
                     const token =  jwt.sign({name,email},"kiri-kiri",{expiresIn:'1d'});
                     res.cookie('token',token);
-                    return res.json({Status:"Success"});
+                    return res.json({Status:"Success",Token:token});
                 }
                 else{
                     return res.json({Error:"Password not matched"});
