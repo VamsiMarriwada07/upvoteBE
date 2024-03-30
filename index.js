@@ -7,22 +7,15 @@ import cookieParser from 'cookie-parser';
 import dotenv from "dotenv"
 dotenv.config()
 
-const salt = 10; 
-
-const urlDB = `mysql://${process.env.MYSQLUSER}:${process.env.MYSQLPASSWORD}@${process.env.MYSQLHOST}:${process.env.MYSQLPORT}/${process.env.MYSQLDATABASE}`
-
-
-const app =  express();
+const salt = 10;
+const app = express();
 app.use(express.json());
-app.use(cors());
-
 app.use(cors({
-  origin: 'https://upvotingsystem.netlify.app/',
+  origin: 'https://upvotingsystem.netlify.app',
   methods: ['GET', 'POST'],
   allowedHeaders: ['Content-Type'],
-credentials:true
+  credentials: true
 }));
-
 app.use(cookieParser());
  
 const db = mysql.createConnection({
