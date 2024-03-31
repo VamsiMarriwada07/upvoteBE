@@ -34,7 +34,7 @@ app.use(function(req, res, next) {
 });
 
 const verifyUser = (req,res,next)=>{
-    const token = req.cookies.token;
+    const token = req.body.token;
     console.log(token);
     if(!token){
         return res.json({Error: "your are not authenticated"})
