@@ -34,9 +34,8 @@ app.use(function(req, res, next) {
 });
 
 const verifyUser = (req,res,next)=>{
-    console.log(req.body);
+    console.log(req);
     const token = req.body.token;
-    console.log(token);
     if(!token){
         return res.json({Error: "your are not authenticated"})
     }else{
