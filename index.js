@@ -50,7 +50,7 @@ const verifyUser = (req,res,next)=>{
         })
     }
 }
-app.get('/',verifyUser,(req,res,next)=>{
+app.post('/',verifyUser,(req,res,next)=>{
     return res.json({Status: "Success", email:req.email,name:req.name});
     
 })
