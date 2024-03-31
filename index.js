@@ -34,6 +34,7 @@ app.use(function(req, res, next) {
 });
 
 const verifyUser = (req,res,next)=>{
+    console.log(req.body);
     const token = req.body.token;
     console.log(token);
     if(!token){
